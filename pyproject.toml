@@ -7,8 +7,9 @@ dependencies = [
     "pyautogui", 
     "python-xlib", 
     "openenv-core",
-    "openai",
-    "pillow"
+    "psutil",      # Added this
+    "pillow",      # Added this for image processing
+    "openai"       # Added this for your model calls
 ]
 
 [project.scripts]
