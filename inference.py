@@ -111,7 +111,7 @@ def parse_action(text: str) -> Optional[Dict[str, Any]]:
 
 def get_model_action(client: OpenAI, step: int, observation: Any, history: List[str]) -> MiniOpenEnvAction:
     prompt = build_user_prompt(step, observation, history)
-    if API_KEY is None:
+    if HF_TOKEN is None:
         raise RuntimeError("Missing HF_TOKEN / OPENAI_API_KEY / API_KEY environment variable.")
 
     try:
@@ -131,7 +131,8 @@ def get_model_action(client: OpenAI, step: int, observation: Any, history: List[
         if parsed is None:
             raise ValueError(f"Invalid action response: {text}")
         return MiniOpenEnvAction(**parsed)
-    except Exception:
+    except Exception as e:
+        print(f"DEBUG: get_model_action failed with: {e}", flush=True) # Add this line!
         if step == 1:
             return MiniOpenEnvAction(type="OPEN_WORKSPACE")
         if not observation.opened:
