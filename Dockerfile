@@ -8,7 +8,7 @@ WORKDIR /app
 COPY pyproject.toml uv.lock ./
 
 # 4. Install dependencies using uv (Faster and matches your lockfile)
-RUN uv sync --frozen
+RUN uv sync
 
 # 5. Copy the rest of your application code
 # Ensure start.sh and inference.py are in your root folder!
