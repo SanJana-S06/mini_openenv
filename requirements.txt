@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+psutil
+pyautogui
+pillow
+openai
+openenv-core
+python-xlib

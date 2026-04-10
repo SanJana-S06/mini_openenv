@@ -1,0 +1,19 @@
+[project]
+name = "mini-productivity-openenv"
+version = "0.1.0"
+dependencies = [
+    "fastapi", 
+    "uvicorn", 
+    "pyautogui", 
+    "python-xlib", 
+    "openenv-core",
+    "openai",
+    "pillow"
+]
+
+[project.scripts]
+server = "server.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build_meta"

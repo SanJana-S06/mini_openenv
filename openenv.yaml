@@ -1,0 +1,26 @@
+schema_version: v1
+name: mini-productivity-openenv
+description: "A desktop productivity OpenEnv environment for drafting meeting notes, customer replies, and incident reports."
+framework: python
+language: python
+entrypoint: server.app:main
+requirements:
+  - fastapi
+  - uvicorn
+  - pydantic
+  - psutil
+  - pyautogui
+  - pillow
+  - openai
+  - openenv-core
+  - appopener
+tasks:
+  - name: meeting_note
+    description: "Compose a short meeting note with agenda and next steps."
+  - name: customer_response
+    description: "Draft a polite customer support reply that thanks the customer and summarizes the issue."
+  - name: incident_report
+    description: "Write a brief incident report that includes root cause, impact, and resolution."
+metadata:
+  repository: https://github.com/your-org/mini-openenv
+  license: MIT

@@ -1,0 +1,26 @@
+[
+  {
+    "task_id": "task_0",
+    "task_name": "meeting_note",
+    "difficulty": "easy",
+    "description": "Compose a short meeting note with agenda and next steps.",
+    "goal": "The final text should include meeting, agenda, and next steps.",
+    "max_steps": 6
+  },
+  {
+    "task_id": "task_1",
+    "task_name": "customer_response",
+    "difficulty": "medium",
+    "description": "Draft a polite customer support reply that thanks the customer and summarizes the issue.",
+    "goal": "The text should include customer, thank you, and support.",
+    "max_steps": 10
+  },
+  {
+    "task_id": "task_2",
+    "task_name": "incident_report",
+    "difficulty": "hard",
+    "description": "Write a brief incident report that includes root cause, impact, and resolution.",
+    "goal": "The final submission should include incident, root cause, impact, and resolution.",
+    "max_steps": 12
+  }
+]
