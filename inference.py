@@ -13,16 +13,16 @@ from openai import OpenAI
 
 from openenv_env import MiniOpenEnv, MiniOpenEnvAction
 
-API_KEY = os.getenv("HF_TOKEN") or os.getenv("OPENAI_API_KEY") or os.getenv("API_KEY")
-API_BASE_URL = os.getenv("API_BASE_URL") or "https://router.huggingface.co/v1"
-MODEL_NAME = os.getenv("MODEL_NAME") or "gpt-4o-mini"
+HF_TOKEN = os.getenv("HF_TOKEN")
+API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
+MODEL_NAME = os.getenv("MODEL_NAME", "gpt-4o-mini")
 LOCAL_IMAGE_NAME = os.getenv("LOCAL_IMAGE_NAME")
-TASK_NAME = os.getenv("MINI_TASK_NAME") or "meeting_note"
-BENCHMARK = os.getenv("MINI_BENCHMARK") or "mini-productivity-openenv"
-MAX_STEPS = int(os.getenv("MAX_STEPS") or "2")
-TEMPERATURE = float(os.getenv("TEMPERATURE") or "0.7")
-MAX_TOKENS = int(os.getenv("MAX_TOKENS") or "150")
-SUCCESS_SCORE_THRESHOLD = float(os.getenv("SUCCESS_SCORE_THRESHOLD") or "0.1")
+TASK_NAME = os.getenv("MINI_TASK_NAME", "meeting_note")
+BENCHMARK = os.getenv("MINI_BENCHMARK", "mini-productivity-openenv")
+MAX_STEPS = int(os.getenv("MAX_STEPS", "2"))
+TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
+MAX_TOKENS = int(os.getenv("MAX_TOKENS", "150"))
+SUCCESS_SCORE_THRESHOLD = float(os.getenv("SUCCESS_SCORE_THRESHOLD", "0.1"))
 
 SYSTEM_PROMPT = textwrap.dedent(
     """
@@ -147,7 +147,7 @@ def get_model_action(client: OpenAI, step: int, observation: Any, history: List[
 
 
 async def main() -> None:
-    client = OpenAI(base_url=API_BASE_URL, api_key=API_KEY, timeout=30.0)
+    client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN, timeout=30.0)
     env = None
 
     history: List[str] = []
